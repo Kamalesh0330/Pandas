@@ -55,6 +55,7 @@ print(df['sentiment_score_numeric'].corr(df['Total_Engagement']))
 engine=create_engine("mysql+mysqlconnector://root:keerthi%400330kamalesh@localhost/social")
 
 df.to_sql("cleaned_social",con=engine,if_exists='replace',index=False)
+df.to_csv("cleaned_data.csv",index=False)
 
 total_eng=pd.read_sql_query("select Total_Engagement from cleaned_social",engine)
 print(total_eng)
